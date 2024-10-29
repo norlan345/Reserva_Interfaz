@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Reserva_Interfaz.Pago"
+             BackgroundColor="#F5F5F5">
+    <!-- Color de fondo suave -->
+
+    <ScrollView Padding="20">
+        <StackLayout Spacing="20">
+
+            <!-- Título -->
+            <Label Text="Opciones de Pago" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="#333" 
+                   HorizontalOptions="Center"/>
+
+            <!-- Métodos de Pago Guardados -->
+            <Label Text="Métodos de Pago Guardados" 
+                   FontSize="Medium" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+
+            <Frame BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                <StackLayout Padding="10">
+                    <Label Text="Tarjeta de Crédito: **** **** **** 1234" FontSize="Medium"/>
+                    <Label Text="Vencimiento: 12/24" FontSize="Medium"/>
+                    <Button Text="Eliminar" 
+                            BackgroundColor="Red" 
+                            TextColor="White" 
+                            CornerRadius="5"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                <StackLayout Padding="10">
+                    <Label Text="PayPal: juan.perez@example.com" FontSize="Medium"/>
+                    <Button Text="Eliminar" 
+                            BackgroundColor="Red" 
+                            TextColor="White" 
+                            CornerRadius="5"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Opción para Agregar Método de Pago -->
+            <Button Text="Agregar Método de Pago" 
+                    BackgroundColor="DarkSlateGray" 
+                    TextColor="White" 
+                    CornerRadius="5"/>
+
+            <!-- Historial de Pagos -->
+            <Label Text="Historial de Pagos" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+
+            <StackLayout>
+                <Frame BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout Padding="10">
+                        <Label Text="Cita: 15/09/2023, Afeitado" FontSize="Medium"/>
+                        <Label Text="Monto: $20" FontSize="Medium"/>
+                        <Label Text="Método: Tarjeta de Crédito" FontSize="Medium"/>
+                        <Label Text="Estado: Completado" FontSize="Medium" TextColor="Green"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout Padding="10">
+                        <Label Text="Cita: 25/08/2023, Corte Clásico" FontSize="Medium"/>
+                        <Label Text="Monto: $15" FontSize="Medium"/>
+                        <Label Text="Método: PayPal" FontSize="Medium"/>
+                        <Label Text="Estado: Completado" FontSize="Medium" TextColor="Green"/>
+                    </StackLayout>
+                </Frame>
+                <!-- Agrega más pagos según sea necesario -->
+            </StackLayout>
+
+            <!-- Botón para Volver a la Página de Inicio -->
+            <Button Text="Volver a la Página de Inicio" 
+                    BackgroundColor="DarkSlateGray" 
+                    TextColor="White" 
+                    CornerRadius="5"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

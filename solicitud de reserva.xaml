@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Reserva_Interfaz.solicitud_de_reserva"
+           
+              Title="Solicitar Reserva"
+             BackgroundColor="#FFFFFF">
+
+
+    <!--<StackLayout Padding="20">
+        --><!-- Título --><!--
+        <Label Text="Solicitud de Reserva"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#333" />
+
+        --><!-- Selección del Servicio --><!--
+        <Picker Title="Selecciona un servicio"
+                ItemsSource="{Binding AvailableServices}"
+                SelectedItem="{Binding SelectedService}"
+                HorizontalOptions="FillAndExpand" />
+
+        --><!-- Selección de Fecha --><!--
+        <DatePicker MinimumDate="{x:Static system:DateTime.Now}"
+                    Date="{Binding SelectedDate}"
+                    HorizontalOptions="FillAndExpand" />
+
+        --><!-- Selección de Hora --><!--
+        <TimePicker Time="{Binding SelectedTime}"
+                    HorizontalOptions="FillAndExpand" />
+
+        --><!-- Botón para enviar la solicitud --><!--
+        <Button Text="Enviar Solicitud"
+                Command="{Binding SendReservationCommand}"
+                BackgroundColor="#007AFF"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                VerticalOptions="EndAndExpand"
+                HeightRequest="50" />
+    </StackLayout>-->
+</ContentPage>

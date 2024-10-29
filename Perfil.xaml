@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Reserva_Interfaz.Perfil"
+             BackgroundColor="#F5F5F5">
+    <!-- Color de fondo suave -->
+
+    <ScrollView Padding="20">
+        <StackLayout Spacing="20">
+
+            <!-- Información Personal -->
+            <Label Text="Información Personal" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="#333" 
+                  />
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="foto_perfil.png" HeightRequest="80" WidthRequest="80" Aspect="AspectFill" />
+                <StackLayout>
+                    <Label Text="Nombre Completo: Juan Pérez" FontSize="Medium" TextColor="#333"/>
+                    <Label Text="Correo Electrónico: juan.perez@example.com" FontSize="Medium" TextColor="#333"/>
+                    <Label Text="Número de Teléfono: +1 (555) 123-4567" FontSize="Medium" TextColor="#333"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Historial de Reservas -->
+            <Label Text="Historial de Reservas" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <StackLayout>
+                <Frame BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout Padding="10">
+                        <Label Text="Próxima Cita: 25/09/2023, 14:00, Corte Clásico, Estilista: Ana" FontSize="Medium"/>
+                        <Label Text="Cita Pasada: 15/09/2023, 10:00, Afeitado, Estilista: Pedro" FontSize="Medium"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Preferencias de Servicio -->
+            <Label Text="Preferencias de Servicio" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <StackLayout>
+                <Frame BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout Padding="10">
+                        <Label Text="Servicios Favoritos: Corte Clásico, Afeitado" FontSize="Medium"/>
+                        <Label Text="Estilistas Preferidos: Ana, Pedro" FontSize="Medium"/>
+                        <Label Text="Notas: Prefiero citas por la tarde." FontSize="Medium"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Opciones de Pago -->
+            <Label Text="Opciones de Pago" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <StackLayout>
+                <Frame BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout Padding="10">
+                        <Label Text="Métodos de Pago Guardados: Tarjeta de Crédito" FontSize="Medium"/>
+                        <Button Text="Agregar/Editar Método de Pago" 
+                                BackgroundColor="DarkSlateGray" 
+                                TextColor="White" 
+                                CornerRadius="5"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Configuraciones de Cuenta -->
+            <Label Text="Configuraciones de Cuenta" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <StackLayout Spacing="10">
+                <!-- Se agrega un espaciado de 10 unidades -->
+                <Button Text="Cambiar Contraseña" 
+            BackgroundColor="DarkSlateGray" 
+            TextColor="White" 
+            CornerRadius="5"/>
+
+                <Button Text="Configuración de Notificaciones" 
+            BackgroundColor="DarkSlateGray" 
+            TextColor="White" 
+            CornerRadius="5"/>
+            </StackLayout>
+
+
+            <!-- Promociones y Ofertas -->
+            <Label Text="Promociones y Ofertas" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <StackLayout>
+                <Label Text="10% de descuento en tu próximo corte!" 
+                       FontSize="Medium" 
+                       TextColor="Green" 
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <!-- Soporte al Cliente -->
+            <Label Text="Soporte al Cliente" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="#333"/>
+            <StackLayout>
+                <Button Text="Contactar Soporte" 
+            BackgroundColor="DarkSlateGray" 
+            TextColor="White" 
+            CornerRadius="5" 
+            Margin="0,0,0,10"/>
+                <!-- Margen inferior de 10 unidades -->
+
+                <Button Text="Preguntas Frecuentes" 
+            BackgroundColor="DarkSlateGray" 
+            TextColor="White" 
+            CornerRadius="5"/>
+            </StackLayout>
+
+
+            <!-- Cierre de Sesión -->
+            <Button Text="Cerrar Sesión" 
+                    BackgroundColor="Red" 
+                    TextColor="White" 
+                    FontAttributes="Bold" 
+                    CornerRadius="5"/>
+
+            <!-- Botón para volver al menú -->
+            <Button Text="Volver al Menú" 
+                BackgroundColor="#333333" 
+                TextColor="White" 
+                Grid.Row="3" 
+                HorizontalOptions="Center" 
+                Clicked="OnBackToMenuClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

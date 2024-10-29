@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:Reserva_Interfaz"
+       x:Class="Reserva_Interfaz.AppShell">
+
+   
+    <TabBar Shell.TabBarBackgroundColor="Gray" Shell.TabBarTitleColor="White" Shell.TabBarUnselectedColor="LightGray">
+
+        <!-- Página de inicio (Home) -->
+        <Tab Title="Inicio" Icon="hogar.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Menu}" />
+        </Tab>
+
+        <!-- Página de Cortes (Haircut) -->
+        <Tab Title="Cortes" Icon="haircut_icon.png">
+            
+            <ShellContent ContentTemplate="{DataTemplate local:Corte}" />
+        </Tab>
+
+        <!-- Página de Reservaciones (Calendar) -->
+        <Tab Title="Reservas" Icon="calendario.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Reservacion}" />
+        </Tab>
+
+        <!-- Página de Pagos (Document/Payments) -->
+        <Tab Title="Pagos" Icon="copiar.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Pago}" />
+        </Tab>
+
+        <!-- Página de Perfil (Profile) -->
+        <Tab Title="Perfil" Icon="usuario.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Perfil}" />
+
+        </Tab>
+    </TabBar>
+</Shell>

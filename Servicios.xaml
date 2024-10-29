@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Reserva_Interfaz.Servicios"
+             Title="Servicios">
+
+
+
+
+    <Grid RowDefinitions="Auto, *, Auto">
+        <!-- Barra superior con el título y el ícono del menú -->
+        <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="LightGray" Grid.Row="0">
+            <Image Source="menu_icon.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"/>
+            <Label Text="Servicios" FontSize="24" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+            <Image Source="notification_icon.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"/>
+            <Image Source="more_icon.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" Margin="0,0,5,0"/>
+        </StackLayout>
+
+        <!-- CollectionView para las solicitudes -->
+        <CollectionView ItemsSource="{Binding ReservationRequests}" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="5" Margin="5" BorderColor="#CCC" CornerRadius="10">
+                        <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="Center">
+                            <!-- Información del cliente y hora -->
+                            <StackLayout Spacing="2" VerticalOptions="Center">
+                                <Label Text="{Binding ClientName}" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="{Binding ReservationDate}" FontSize="14" />
+                            </StackLayout>
+
+                            <!-- Botones de aceptar y rechazar -->
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <Button ImageSource="check_icon.png" BackgroundColor="Transparent" Command="{Binding AcceptReservationCommand}" />
+                                <Button ImageSource="cancel_icon.png" BackgroundColor="Transparent" Command="{Binding RejectReservationCommand}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Barra de navegación inferior -->
+        <StackLayout Orientation="Horizontal" Padding="5" BackgroundColor="LightGray" Grid.Row="2">
+            <Button ImageSource="home_icon.png" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
+            <Button ImageSource="services_icon.png" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
+            <Button ImageSource="calendar_icon.png" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
+            <Button ImageSource="profile_icon.png" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
+            <Button ImageSource="settings_icon.png" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

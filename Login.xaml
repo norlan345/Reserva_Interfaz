@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Reserva_Interfaz.MVVM.ViewModel" 
+             x:Class="Reserva_Interfaz.Login"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+   
+
+
+    <Grid>
+        <!-- Fondo degradado -->
+       
+
+        <!-- Contenedor principal centrado -->
+        <Frame
+            BackgroundColor="Transparent"
+            BorderColor="Black"
+            CornerRadius="20"
+            Padding="30"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            WidthRequest="340"
+            HeightRequest="700"
+            AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional">
+
+            <!-- Contenido de la página -->
+            <VerticalStackLayout 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                Spacing="20">
+
+                <Image 
+                    Source="logo.png" 
+                    WidthRequest="300" 
+                    HeightRequest="300" 
+                    HorizontalOptions="Center" />
+
+                <Label 
+                    Text="Bienvenido"
+                    TextColor="Black" 
+                    FontSize="24" 
+                    FontAttributes="Bold" 
+                    HorizontalOptions="Center" />
+
+                <!-- Stack con icono e input de usuario -->
+                <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                    <Image VerticalOptions="Center" Source="usuarioimg.png" HeightRequest="25" WidthRequest="25"/>
+                    <Entry 
+                        VerticalOptions="Center" 
+                        Placeholder="Usuario" 
+                        PlaceholderColor="Black"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        WidthRequest="250"
+                        Grid.Column="1"
+                        Text="{Binding Nombre}" />
+                    <!-- Binding a Username del ViewModel -->
+                </Grid>
+
+                <!-- Stack con icono e input de contraseña -->
+                <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                    <Image VerticalOptions="Center" Source="contra.png" HeightRequest="25" WidthRequest="25"/>
+                    <Entry 
+                        VerticalOptions="Center" 
+                        Placeholder="Contraseña" 
+                        PlaceholderColor="Black"
+                        TextColor="White"
+                        IsPassword="True" 
+                        BackgroundColor="Transparent"
+                        WidthRequest="250"
+                        Grid.Column="1"
+                        Text="{Binding Contraseña}" />
+                    <!-- Binding a Password del ViewModel -->
+                </Grid>
+
+                <!-- Botón de Iniciar Sesión -->
+                <Button 
+    Text="Iniciar Sesión" 
+    TextColor="White" 
+    BackgroundColor="#333333" 
+    WidthRequest="250" 
+    CornerRadius="25" 
+    Clicked="OnLoginButtonClicked" />
+
+                <!-- Vinculado al comando LoginCommand -->
+
+                <!-- Botón de Registrarse -->
+                <Button 
+    Text="Registrarse" 
+    TextColor="White" 
+    BackgroundColor="#555555" 
+    WidthRequest="250" 
+    CornerRadius="25" 
+    Clicked="OnRegisterButtonClicked" />
+
+                <!-- Vinculado al comando RegisterCommand -->
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

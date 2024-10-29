@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Reserva_Interfaz.Reservacion"
+             
+             BackgroundColor="#F5F5F5">
+    <!-- Color de fondo suave -->
+
+    <StackLayout Padding="20" Spacing="15">
+        <!-- Título -->
+        <Label Text="Realiza tu reservación" 
+               FontSize="Large" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center"
+               TextColor="Black" 
+            Margin="0,20,0,20" />
+
+            <!-- Imagen decorativa de barbería -->
+            <Image Source="barber_shop_logo.png" 
+               HeightRequest="100" 
+               Aspect="AspectFit" 
+               HorizontalOptions="Center"/>
+
+            <!-- Picker para seleccionar el servicio -->
+            <Label Text="Selecciona el servicio" TextColor="#333"/>
+            <Picker x:Name="servicioPicker" 
+                Title="Selecciona un servicio"
+                BackgroundColor="White" 
+                TextColor="#333" 
+                Margin="0,5"
+             
+               >
+               
+                <Picker.Items>
+                    <x:String>Corte de Cabello</x:String>
+                    <x:String>Afeitado</x:String>
+                    <x:String>Corte y Afeitado</x:String>
+                    <x:String>Lavado de Cabello</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Entry para el nombre del cliente -->
+            <Label Text="Nombre del Cliente" TextColor="#333"/>
+            <Entry x:Name="nombreClienteEntry" 
+               Placeholder="Escribe tu nombre" 
+               BackgroundColor="White" 
+               TextColor="#333" 
+               Margin="0,5" />
+
+            <!-- DatePicker para la fecha de la reservación -->
+            <Label Text="Selecciona la Fecha" TextColor="#333"/>
+            <DatePicker x:Name="fechaPicker" 
+                     BackgroundColor="White" 
+                     TextColor="#333" />
+
+            <!-- TimePicker para la hora de la reservación -->
+            <Label Text="Selecciona la Hora" TextColor="#333"/>
+            <TimePicker x:Name="horaPicker" 
+                     BackgroundColor="White" 
+                     TextColor="#333" />
+
+            <!-- Botón para confirmar la reservación -->
+            <Button Text="Confirmar Reservación"
+                BackgroundColor="#555555"
+                TextColor="White"
+                FontAttributes="Bold"
+                Margin="0,20,0,0"
+                CornerRadius="5" />
+
+        <!-- Botón para volver al menú -->
+        <Button Text="Volver al Menú" 
+                BackgroundColor="#333333" 
+                TextColor="White" 
+                Grid.Row="3" 
+                HorizontalOptions="Center" 
+                Clicked="OnBackToMenuClicked" />
+    </StackLayout>
+</ContentPage>
