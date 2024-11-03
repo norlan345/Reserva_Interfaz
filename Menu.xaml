@@ -16,10 +16,10 @@
                 TextColor="White" 
                 Clicked="OnPerfilButtonClicked" />
 
-        <Button Text="Reservación" 
+        <!--<Button Text="Reservación" 
                 BackgroundColor="#333333" 
                 TextColor="White" 
-                Clicked="OnReservacionButtonClicked" />
+                Clicked="OnReservacionButtonClicked" />-->
 
         <Button Text="Messenger Barber" 
                 BackgroundColor="#333333" 

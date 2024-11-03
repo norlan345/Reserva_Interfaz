@@ -2,17 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Json;
 using System.Text;
+using System.Threading.Tasks;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 using System.Net;
 using System.Net.Sockets;
-using Reserva_Interfaz;
 using System.Text.Json;
-using CommunityToolkit.Mvvm.ComponentModel;
+using Reserva_Interfaz;
 
 
 namespace Reserva_Interfaz.MVVM.ViewModel
@@ -94,28 +98,49 @@ namespace Reserva_Interfaz.MVVM.ViewModel
         {
             var user = new UsuarioModel
             {
-                Nombre = Nombre ,
+                Nombre = Nombre,
                 Contraseña = Contraseña
             };
 
             try
             {
-                var response = await _httpClient.PostAsJsonAsync("http://localhost:7071/api/Usuario/login", user);
+                var response = await _httpClient.PostAsJsonAsync("http://10.0.2.2:5002/api/Auth/login", user);
+
 
                 if (response.IsSuccessStatusCode)
+
                 {
                     // Obtener el token de la respuesta
+                    //var token = await response.Content.ReadAsStringAsync();
+
+                    // Deserializar la respuesta para obtener solo el token
                     var jsonResponse = await response.Content.ReadAsStringAsync();
                     var tokenObj = JsonSerializer.Deserialize<TokenResponse>(jsonResponse);
-                    var token = tokenObj.Token; // Extraer el valor del token
+                    var token = tokenObj.Token; // Extraer solo el valor del token
 
-                    // Redirigir a la vista de servicios pasando el token
-                   
+                    // Almacenar el token (puedes usar una propiedad o variable estática, depende de cómo manejes tu estado)
+                    //Token = token;
+
+                    // Mostrar una alerta para notificar el éxito del login
+                    //await _page.DisplayAlert("Login", "Login exitoso!. Tu token es: " + token.ToString(), "OK");
+
+                    // Redirigir a la vista de estudiantes pasando el token como parámetro
+                    //await _page.Navigation.PushAsync(new EstudianteView(token));
+
+                    try
+                    {
+                        await _page.Navigation.PushAsync(new Reservacion(token));
+                    }
+                    catch (Exception ex)
+                    {
+                        await _page.DisplayAlert("Error", $"Ocurrió un error al cargar la vista de estudiantes: {ex.Message}", "OK");
+                    }
                 }
                 else
                 {
-                    await _page.DisplayAlert("Error", "Error en el login", "OK");
+                    await _page.DisplayAlert("Error", "Credenciales Incorrectas", "OK");
                 }
+
             }
             catch (Exception ex)
             {

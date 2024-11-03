@@ -5,14 +5,8 @@
              x:Class="Reserva_Interfaz.Login"
              BackgroundColor="White"
              NavigationPage.HasNavigationBar="False">
-   
-
 
     <Grid>
-        <!-- Fondo degradado -->
-       
-
-        <!-- Contenedor principal centrado -->
         <Frame
             BackgroundColor="Transparent"
             BorderColor="Black"
@@ -25,7 +19,6 @@
             AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize"
             AbsoluteLayout.LayoutFlags="PositionProportional">
 
-            <!-- Contenido de la página -->
             <VerticalStackLayout 
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" 
@@ -44,58 +37,48 @@
                     FontAttributes="Bold" 
                     HorizontalOptions="Center" />
 
-                <!-- Stack con icono e input de usuario -->
                 <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
                     <Image VerticalOptions="Center" Source="usuarioimg.png" HeightRequest="25" WidthRequest="25"/>
                     <Entry 
                         VerticalOptions="Center" 
                         Placeholder="Usuario" 
                         PlaceholderColor="Black"
-                        TextColor="White"
+                        TextColor="Black"
                         BackgroundColor="Transparent"
                         WidthRequest="250"
                         Grid.Column="1"
                         Text="{Binding Nombre}" />
-                    <!-- Binding a Username del ViewModel -->
                 </Grid>
 
-                <!-- Stack con icono e input de contraseña -->
                 <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
                     <Image VerticalOptions="Center" Source="contra.png" HeightRequest="25" WidthRequest="25"/>
                     <Entry 
                         VerticalOptions="Center" 
                         Placeholder="Contraseña" 
                         PlaceholderColor="Black"
-                        TextColor="White"
+                        TextColor="Black"
                         IsPassword="True" 
                         BackgroundColor="Transparent"
                         WidthRequest="250"
                         Grid.Column="1"
                         Text="{Binding Contraseña}" />
-                    <!-- Binding a Password del ViewModel -->
                 </Grid>
 
-                <!-- Botón de Iniciar Sesión -->
                 <Button 
-    Text="Iniciar Sesión" 
-    TextColor="White" 
-    BackgroundColor="#333333" 
-    WidthRequest="250" 
-    CornerRadius="25" 
-    Clicked="OnLoginButtonClicked" />
+                    Text="Iniciar Sesión" 
+                    TextColor="White" 
+                    BackgroundColor="#333333" 
+                    WidthRequest="250" 
+                    CornerRadius="25" 
+                    Command="{Binding LoginCommand}" />
 
-                <!-- Vinculado al comando LoginCommand -->
-
-                <!-- Botón de Registrarse -->
                 <Button 
-    Text="Registrarse" 
-    TextColor="White" 
-    BackgroundColor="#555555" 
-    WidthRequest="250" 
-    CornerRadius="25" 
-    Clicked="OnRegisterButtonClicked" />
-
-                <!-- Vinculado al comando RegisterCommand -->
+                    Text="Registrarse" 
+                    TextColor="White" 
+                    BackgroundColor="#555555" 
+                    WidthRequest="250" 
+                    CornerRadius="25" 
+                    />
             </VerticalStackLayout>
         </Frame>
     </Grid>

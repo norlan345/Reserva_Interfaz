@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Maui.Controls;
+using Reserva_Interfaz.MVVM.ViewModel;
 
 namespace Reserva_Interfaz
 {
@@ -8,6 +9,7 @@ namespace Reserva_Interfaz
         public Login()
         {
             InitializeComponent();
+            BindingContext = new UsuarioViewModel(this);
         }
 
         private async void OnLoginButtonClicked(object sender, EventArgs e)
@@ -18,7 +20,7 @@ namespace Reserva_Interfaz
             // Validar credenciales...
 
             // Si las credenciales son válidas, navega al menú
-            await Navigation.PushAsync(new Menu());
+            
         }
         private async void OnRegisterButtonClicked(object sender, EventArgs e)
         {

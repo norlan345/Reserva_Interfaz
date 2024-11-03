@@ -13,7 +13,7 @@ namespace Reserva_Interfaz
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
 
-            MainPage = new NavigationPage(new Sign_up());
+            MainPage = new NavigationPage(new Login());
         }
     }
 }
