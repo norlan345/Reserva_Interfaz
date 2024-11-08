@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Reserva_Interfaz.EditarCita"
+             Title="Editar Cita"
+             BackgroundColor="#F0E68C">
+
+    <VerticalStackLayout Padding="20">
+        <!-- Header -->
+        <Frame BackgroundColor="#FF6347" CornerRadius="20" Padding="15"
+               Margin="0,10" HeightRequest="60" WidthRequest="300"
+               HorizontalOptions="Center">
+            <Label Text="Editar Cita" FontSize="24" HorizontalOptions="Center" TextColor="White" />
+        </Frame>
+
+        <!-- Panel de información del cliente -->
+        <Frame BackgroundColor="#F0E68C" CornerRadius="20" Padding="20" Margin="0,10"
+               HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+            <Label Text="Nombre del Cliente" TextColor="#2F4F4F" FontSize="18"/>
+            <Entry Placeholder="Ingrese nombre del cliente" Text="{Binding NombreCliente}" TextColor="#2F4F4F" BackgroundColor="White" />
+        </Frame>
+
+        <!-- Panel de selección de servicios -->
+        <Frame BackgroundColor="#6A5ACD" CornerRadius="20" Padding="20" Margin="0,10"
+               HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+            <Label Text="Servicios" TextColor="White" FontSize="18" HorizontalOptions="Center" />
+
+            <VerticalStackLayout>
+                <!-- Servicio: Corte de Cabello -->
+                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="10">
+                    <CheckBox IsChecked="{Binding CorteCabello}" Color="White" VerticalOptions="Center" />
+                    <Label Text="Corte de Cabello" TextColor="White" FontSize="16" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!-- Servicio: Corte de Cejas -->
+                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="10">
+                    <CheckBox IsChecked="{Binding CorteCejas}" Color="White" VerticalOptions="Center" />
+                    <Label Text="Corte de Cejas" TextColor="White" FontSize="16" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!-- Servicio: Limpieza Facial -->
+                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="10">
+                    <CheckBox IsChecked="{Binding LimpiezaFacial}" Color="White" VerticalOptions="Center" />
+                    <Label Text="Limpieza Facial" TextColor="White" FontSize="16" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!-- Servicio: Tinte de Pelo -->
+                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="10">
+                    <CheckBox IsChecked="{Binding TintePelo}" Color="White" VerticalOptions="Center" />
+                    <Label Text="Tinte de Pelo" TextColor="White" FontSize="16" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Botón Guardar Cambios -->
+        <Frame CornerRadius="10" BackgroundColor="#2F4F4F" Padding="15" Margin="0,10"
+               HorizontalOptions="FillAndExpand">
+            <Button Text="Guardar Cambios" Command="{Binding EditarCitaCommand}" BackgroundColor="#FF6347" TextColor="White" FontSize="18"
+                    HorizontalOptions="FillAndExpand" CornerRadius="10"/>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

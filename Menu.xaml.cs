@@ -4,7 +4,7 @@ namespace Reserva_Interfaz
 {
     public partial class Menu : ContentPage
     {
-        public Menu()
+        public Menu(string token)
         {
             InitializeComponent();
         }

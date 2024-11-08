@@ -62,9 +62,12 @@
 	  <None Remove="imagenes\barberia.png" />
 	  <None Remove="imagenes\calendario.png" />
 	  <None Remove="imagenes\copiar.png" />
+	  <None Remove="imagenes\fechareserva.png" />
 	  <None Remove="imagenes\hogar.png" />
+	  <None Remove="imagenes\horareserva.png" />
 	  <None Remove="imagenes\logo.jpg" />
 	  <None Remove="imagenes\loscut.png" />
+	  <None Remove="imagenes\nombrecliente.png" />
 	  <None Remove="imagenes\usuario.png" />
 	</ItemGroup>
 
@@ -77,6 +80,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Corte.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="EditarCita.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Login.xaml">
@@ -100,9 +106,6 @@
 	  <MauiXaml Update="Sign_up.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="solicitud de reserva.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -110,9 +113,12 @@
 	  <MauiImage Include="imagenes\barberia.png" />
 	  <MauiImage Include="imagenes\calendario.png" />
 	  <MauiImage Include="imagenes\copiar.png" />
+	  <MauiImage Include="imagenes\fechareserva.png" />
 	  <MauiImage Include="imagenes\hogar.png" />
+	  <MauiImage Include="imagenes\horareserva.png" />
 	  <MauiImage Include="imagenes\logo.jpg" />
 	  <MauiImage Include="imagenes\loscut.png" />
+	  <MauiImage Include="imagenes\nombrecliente.png" />
 	  <MauiImage Include="imagenes\usuario.png" />	
 	</ItemGroup>
 

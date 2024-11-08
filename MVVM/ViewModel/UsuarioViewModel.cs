@@ -129,7 +129,7 @@ namespace Reserva_Interfaz.MVVM.ViewModel
 
                     try
                     {
-                        await _page.Navigation.PushAsync(new Reservacion(token));
+                        await _page.Navigation.PushAsync(new Menu(token));
                     }
                     catch (Exception ex)
                     {

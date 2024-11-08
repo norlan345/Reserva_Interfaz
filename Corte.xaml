@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Reserva_Interfaz.Corte"
-             BackgroundColor="#F5F5F5">
+             BackgroundColor="White">
 
     <Grid Padding="20" RowSpacing="20" ColumnSpacing="20">
         <!-- Definir las filas y columnas de la cuadrícula -->
@@ -10,9 +10,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <!-- Para dejar espacio para los cuadros de corte -->
             <RowDefinition Height="Auto"/>
-            <!-- Para el botón "Volver al Menú" -->
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -20,45 +18,58 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- Primer cuadro (arriba a la izquierda) -->
-        <Frame Grid.Row="0" Grid.Column="0" BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+        <!-- Encabezado -->
+        <Label Text="Seleccione un Corte" 
+               FontSize="Large" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center"
+               TextColor="#2F4F4F" 
+               Grid.Row="0" 
+               Grid.ColumnSpan="2"/>
+
+        <!-- Primer cuadro (Corte Clásico) -->
+        <Frame Grid.Row="1" Grid.Column="0" BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
             <VerticalStackLayout Padding="10">
                 <Image Source="corte1.png" HeightRequest="150" Aspect="AspectFit"/>
                 <Label Text="Corte Clásico" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#333"/>
-                <Label Text="$15" FontSize="Small" HorizontalOptions="Center" TextColor="#28A745"/>
+                <Label Text="$15" FontSize="Small" HorizontalOptions="Center" TextColor="#FF6347"/>
+                <Button Text="Reservar" BackgroundColor="#FF6347" TextColor="White" Clicked="OnCorteSelected" CommandParameter="Corte Clásico, $15"/>
             </VerticalStackLayout>
         </Frame>
 
-        <!-- Segundo cuadro (arriba a la derecha) -->
-        <Frame Grid.Row="0" Grid.Column="1" BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+        <!-- Segundo cuadro (Corte Moderno) -->
+        <Frame Grid.Row="1" Grid.Column="1" BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
             <VerticalStackLayout Padding="10">
                 <Image Source="corte2.png" HeightRequest="150" Aspect="AspectFit"/>
                 <Label Text="Corte Moderno" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#333"/>
-                <Label Text="$20" FontSize="Small" HorizontalOptions="Center" TextColor="#28A745"/>
+                <Label Text="$20" FontSize="Small" HorizontalOptions="Center" TextColor="#FF6347"/>
+                <Button Text="Reservar" BackgroundColor="#FF6347" TextColor="White" Clicked="OnCorteSelected" CommandParameter="Corte Moderno, $20"/>
             </VerticalStackLayout>
         </Frame>
 
-        <!-- Tercer cuadro (abajo a la izquierda) -->
-        <Frame Grid.Row="1" Grid.Column="0" BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+        <!-- Tercer cuadro (Corte Fade) -->
+        <Frame Grid.Row="2" Grid.Column="0" BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
             <VerticalStackLayout Padding="10">
                 <Image Source="corte3.png" HeightRequest="150" Aspect="AspectFit"/>
                 <Label Text="Corte Fade" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#333"/>
-                <Label Text="$18" FontSize="Small" HorizontalOptions="Center" TextColor="#28A745"/>
+                <Label Text="$18" FontSize="Small" HorizontalOptions="Center" TextColor="#FF6347"/>
+                <Button Text="Reservar" BackgroundColor="#FF6347" TextColor="White" Clicked="OnCorteSelected" CommandParameter="Corte Fade, $18"/>
             </VerticalStackLayout>
         </Frame>
 
-        <!-- Cuarto cuadro (abajo a la derecha) -->
-        <Frame Grid.Row="1" Grid.Column="1" BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+        <!-- Cuarto cuadro (Corte Razor) -->
+        <Frame Grid.Row="2" Grid.Column="1" BorderColor="#B0B0B0" CornerRadius="10" HasShadow="True" BackgroundColor="White">
             <VerticalStackLayout Padding="10">
                 <Image Source="corte4.png" HeightRequest="150" Aspect="AspectFit"/>
                 <Label Text="Corte Razor" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#333"/>
-                <Label Text="$22" FontSize="Small" HorizontalOptions="Center" TextColor="#28A745"/>
+                <Label Text="$22" FontSize="Small" HorizontalOptions="Center" TextColor="#FF6347"/>
+                <Button Text="Reservar" BackgroundColor="#FF6347" TextColor="White" Clicked="OnCorteSelected" CommandParameter="Corte Razor, $22"/>
             </VerticalStackLayout>
         </Frame>
 
         <!-- Botón para volver al menú -->
         <Button Text="Volver al Menú" 
-                BackgroundColor="#333333" 
+                BackgroundColor="#6A5ACD" 
                 TextColor="White" 
                 Grid.Row="3" 
                 HorizontalOptions="Center" 

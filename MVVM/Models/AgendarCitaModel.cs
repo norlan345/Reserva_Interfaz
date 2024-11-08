@@ -8,9 +8,11 @@ namespace Reserva_Interfaz.MVVM.Models
 {
     internal class AgendarCitaModel
     {
-        public string? Id { get; set; } // ID de la cita, puede ser generado automáticamente
-        public string? NombreCliente { get; set; } = string.Empty; // Nombre del cliente
-        public string? Servicio { get; set; } = string.Empty; // Tipo de servicio solicitado
+        public string? Id { get; set; } 
+        public string? NombreCliente { get; set; } = string.Empty; 
+        public List<ServicioDisponibleModel> ServiciosSeleccionados { get; set; } = new List<ServicioDisponibleModel>(); 
         public DateTime FechaCita { get; set; }     
+
+        public decimal Total { get; set; }
     }
 }
