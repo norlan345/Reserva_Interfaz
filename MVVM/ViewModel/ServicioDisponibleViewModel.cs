@@ -48,7 +48,7 @@ namespace Reserva_Interfaz.MVVM.ViewModel
                 
                 Servicio = servicio,
                 Precio = precio,// Combina fecha y hora
-                Total = total,
+                
             };
 
             try

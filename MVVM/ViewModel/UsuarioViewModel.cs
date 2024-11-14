@@ -110,22 +110,12 @@ namespace Reserva_Interfaz.MVVM.ViewModel
                 if (response.IsSuccessStatusCode)
 
                 {
-                    // Obtener el token de la respuesta
-                    //var token = await response.Content.ReadAsStringAsync();
-
-                    // Deserializar la respuesta para obtener solo el token
+                  
                     var jsonResponse = await response.Content.ReadAsStringAsync();
                     var tokenObj = JsonSerializer.Deserialize<TokenResponse>(jsonResponse);
-                    var token = tokenObj.Token; // Extraer solo el valor del token
+                    var token = tokenObj.Token; 
 
-                    // Almacenar el token (puedes usar una propiedad o variable estática, depende de cómo manejes tu estado)
-                    //Token = token;
-
-                    // Mostrar una alerta para notificar el éxito del login
-                    //await _page.DisplayAlert("Login", "Login exitoso!. Tu token es: " + token.ToString(), "OK");
-
-                    // Redirigir a la vista de estudiantes pasando el token como parámetro
-                    //await _page.Navigation.PushAsync(new EstudianteView(token));
+                   
 
                     try
                     {

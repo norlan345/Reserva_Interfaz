@@ -40,7 +40,12 @@ namespace Reserva_Interfaz.MVVM.ViewModel
         [ObservableProperty]
         private bool tintePelo;
 
-       
+        //[ObservableProperty]
+        //private List<ServicioDisponibleModel> serviciosSeleccionados = new List<ServicioDisponibleModel>();
+
+
+
+
         [ObservableProperty]
         private decimal total;
 
@@ -67,9 +72,67 @@ namespace Reserva_Interfaz.MVVM.ViewModel
 
 
 
+
+        //public async Task AgendarCitaAsync()
+        //{
+        //    // Crear la lista de servicios seleccionados y calcular el total
+        //    var serviciosSeleccionados = new List<ServicioDisponibleModel>();
+        //    decimal total = 0;
+
+        //    if (IsCorteCabelloSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Corte de Cabello", Precio = 150 });
+        //        total += 150;
+        //    }
+        //    if (IsCorteCejasSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Corte de Cejas", Precio = 50 });
+        //        total += 50;
+        //    }
+        //    if (IsLimpiezaFacialSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Limpieza Facial", Precio = 200 });
+        //        total += 200;
+        //    }
+        //    if (IsTintePeloSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Tinte de Pelo", Precio = 300 });
+        //        total += 300;
+        //    }
+
+        //    var cita = new AgendarCitaModel
+        //    {
+        //        NombreCliente = NombreCliente,
+        //        FechaCita = FechaCita.Date + HoraCita,
+        //        ServiciosSeleccionados = serviciosSeleccionados,
+        //        Total = total // Asigna el total calculado
+        //    };
+
+        //    try
+        //    {
+        //        var response = await _httpClient.PostAsJsonAsync("http://10.0.2.2:5002/api/Citas/agendar_cita", cita);
+
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            await _page.DisplayAlert("Cita", "¡Cita agendada con éxito!", "OK");
+        //        }
+        //        else
+        //        {
+        //            await _page.DisplayAlert("Error", "Error al agendar la cita", "OK");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await _page.DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
+        //    }
+        //}
+
+
+
+
+
         public async Task AgendarCitaAsync()
         {
-            // Crear la lista de servicios seleccionados y calcular el total
             var serviciosSeleccionados = new List<ServicioDisponibleModel>();
             decimal total = 0;
 
@@ -85,7 +148,7 @@ namespace Reserva_Interfaz.MVVM.ViewModel
             }
             if (IsLimpiezaFacialSelected)
             {
-                serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Limpieza Facial", Precio = 200 });
+                serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Limpieza Facial", Precio = 200});
                 total += 200;
             }
             if (IsTintePeloSelected)
@@ -99,27 +162,261 @@ namespace Reserva_Interfaz.MVVM.ViewModel
                 NombreCliente = NombreCliente,
                 FechaCita = FechaCita.Date + HoraCita,
                 ServiciosSeleccionados = serviciosSeleccionados,
-                Total = total // Asigna el total calculado
+                Total = total
             };
 
             try
             {
-                var response = await _httpClient.PostAsJsonAsync("http://10.0.2.2:5002/api/Citas/agendar_cita", cita);
+                // Agendar la cita
+                var citaResponse = await _httpClient.PostAsJsonAsync("http://10.0.2.2:5002/api/Citas/agendar_cita", cita);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    await _page.DisplayAlert("Cita", "¡Cita agendada con éxito!", "OK");
-                }
-                else
+                if (!citaResponse.IsSuccessStatusCode)
                 {
                     await _page.DisplayAlert("Error", "Error al agendar la cita", "OK");
+                    return;
                 }
+
+              
+
+                foreach (var servicio in serviciosSeleccionados)
+                {
+                    var debug = servicio;
+                    var servicioResponse = await _httpClient.PostAsJsonAsync("http://10.0.2.2:5002/api/Servicios/servicios_barbero", servicio);
+                    if (!servicioResponse.IsSuccessStatusCode)
+                    {
+                        await _page.DisplayAlert("Error", $"Error al agregar el servicio: {servicio.Servicio}", "OK");
+                        return;
+                    }
+                }
+
+                await _page.DisplayAlert("Cita", "¡Cita y servicios agendados con éxito!", "OK");
             }
             catch (Exception ex)
             {
                 await _page.DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
             }
         }
+
+
+        //public async Task AgendarCitaAsync()
+        //{
+        //    // Crear la lista de servicios seleccionados y calcular el total
+        //    var serviciosSeleccionados = new List<ServicioDisponibleModel>();
+        //    decimal total = 0;
+
+        //    if (IsCorteCabelloSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Corte de Cabello", Precio = 150 });
+        //        total += 150;
+        //    }
+        //    if (IsCorteCejasSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Corte de Cejas", Precio = 50 });
+        //        total += 50;
+        //    }
+        //    if (IsLimpiezaFacialSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Limpieza Facial", Precio = 200 });
+        //        total += 200;
+        //    }
+        //    if (IsTintePeloSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Tinte de Pelo", Precio = 300 });
+        //        total += 300;
+        //    }
+
+        //    var cita = new AgendarCitaModel
+        //    {
+        //        NombreCliente = NombreCliente,
+        //        FechaCita = FechaCita.Date + HoraCita,
+        //        ServiciosSeleccionados = serviciosSeleccionados,
+        //        Total = total // Asigna el total calculado
+        //    };
+
+        //    try
+        //    {
+        //        var response = await _httpClient.PostAsJsonAsync("http://10.0.2.2:5002/api/Citas/agendar_cita", cita);
+
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            await _page.DisplayAlert("Cita", "¡Cita agendada con éxito!", "OK");
+        //        }
+        //        else
+        //        {
+        //            await _page.DisplayAlert("Error", "Error al agendar la cita", "OK");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await _page.DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
+        //    }
+        //}
+
+
+
+        //public async Task AgendarCitaAsync()
+        //{
+        //    // Clear the list of selected services
+        //    var serviciosSeleccionados = new List<ServicioDisponibleModel>();
+        //    decimal total = 0;
+
+        //    if (CorteCabello)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Corte de Cabello", Precio = 150 });
+        //        total += 150;
+        //    }
+        //    if (CorteCejas)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Corte de Cejas", Precio = 50 });
+        //        total += 50;
+        //    }
+        //    if (LimpiezaFacial)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Limpieza Facial", Precio = 200 });
+        //        total += 200;
+        //    }
+        //    if (TintePelo)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Tinte de Pelo", Precio = 300 });
+        //        total += 300;
+        //    }
+
+        //    // Create the appointment model with selected services
+        //    var cita = new AgendarCitaModel
+        //    {
+        //        NombreCliente = NombreCliente,
+        //        FechaCita = FechaCita,
+        //        ServiciosSeleccionados = serviciosSeleccionados, // Use the populated list
+        //        Total = total // Assign the calculated total
+        //    };
+
+        //    try
+        //    {
+        //        var response = await _httpClient.PostAsJsonAsync("http://10.0.2.2:5002/api/Citas/agendar", cita);
+
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            await _page.DisplayAlert("Cita", "¡Cita agendada exitosamente!", "OK");
+        //            // Redirection logic if needed
+        //        }
+        //        else
+        //        {
+        //            await _page.DisplayAlert("Error", "Error al agendar la cita", "OK");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await _page.DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
+        //    }
+        //}
+
+
+        //private async Task AgendarCitaAsync()
+        //{
+        //    // Crear una lista de servicios seleccionados y calcular el total
+        //    var serviciosSeleccionados = new List<ServicioDisponibleModel>();
+        //    Total = 0;
+
+        //    if (IsCorteCabelloSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Corte de Cabello", Precio = 150 });
+        //        Total += 150;
+        //    }
+        //    if (IsCorteCejasSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Corte de Cejas", Precio = 50 });
+        //        Total += 50;
+        //    }
+        //    if (IsLimpiezaFacialSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Limpieza Facial", Precio = 200 });
+        //        Total += 200;
+        //    }
+        //    if (IsTintePeloSelected)
+        //    {
+        //        serviciosSeleccionados.Add(new ServicioDisponibleModel { Servicio = "Tinte de Pelo", Precio = 300 });
+        //        Total += 300;
+        //    }
+
+        //    // Crear el modelo de cita con los servicios seleccionados y el total
+        //    var cita = new AgendarCitaModel
+        //    {
+        //        NombreCliente = NombreCliente,
+        //        FechaCita = FechaCita.Date + HoraCita,
+        //        ServiciosSeleccionados = serviciosSeleccionados,
+        //        Total = Total
+        //    };
+
+        //    try
+        //    {
+        //        // Llamada al controlador para agendar la cita
+        //        var response = await _httpClient.PostAsJsonAsync("http://10.0.2.2:5002/api/Citas/agendar_cita", cita);
+
+        //        if (response.IsSuccessStatusCode)
+        //            await _page.DisplayAlert("Cita", "¡Cita y servicio guardados exitosamente!", "OK");
+        //        else
+        //            await _page.DisplayAlert("Error", "Error al agendar la cita", "OK");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await _page.DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
+        //    }
+        //}
+
+
+        //public async Task AgendarCitaAsync()
+        //{
+        //    //// Crear la lista de servicios seleccionados y calcular el total
+        //    var Servicio = new List<AgendarCitaModel>();
+        //    decimal total = 0;
+
+        //    if (IsCorteCabelloSelected)
+        //    {
+        //        Servicio.Add(new AgendarCitaModel { Servicio = "Corte de Cabello" });
+        //        total += 150;
+        //    }
+        //    if (IsCorteCejasSelected)
+        //    {
+        //        Servicio.Add(new AgendarCitaModel { Servicio = "Corte de Cejas" });
+        //        total += 50;
+        //    }
+        //    if (IsLimpiezaFacialSelected)
+        //    {
+        //        Servicio.Add(new AgendarCitaModel { Servicio = "Limpieza Facial" });
+        //        total += 200;
+        //    }
+        //    if (IsTintePeloSelected)
+        //    {
+        //        Servicio.Add(new AgendarCitaModel { Servicio = "Tinte de Pelo" });
+        //        total += 300;
+        //    }
+
+        //    var cita = new AgendarCitaModel
+        //    {
+        //        NombreCliente = NombreCliente,
+        //        FechaCita = FechaCita.Date + HoraCita,
+
+        //        Total = Total
+        //    };
+
+        //    try
+        //    {
+        //        var response = await _httpClient.PostAsJsonAsync("http://10.0.2.2:5002/api/Citas/agendar_cita", cita);
+
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            await _page.DisplayAlert("Cita", "¡Cita agendada con éxito!", "OK");
+        //        }
+        //        else
+        //        {
+        //            await _page.DisplayAlert("Error", "Error al agendar la cita", "OK");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await _page.DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
+        //    }
+        //}
 
 
         private async Task EditarCitaAsync()
@@ -155,7 +452,6 @@ namespace Reserva_Interfaz.MVVM.ViewModel
                
                 NombreCliente = NombreCliente,
                 FechaCita = FechaCita.Date + HoraCita,
-                ServiciosSeleccionados = serviciosSeleccionados,
                 Total = total
             };
 

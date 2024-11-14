@@ -9,7 +9,7 @@
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
 
-            <!-- Título de la página -->
+           
             <Label Text="Realiza tu reservación" 
                    FontSize="Large" 
                    FontAttributes="Bold" 
@@ -19,7 +19,7 @@
 
 
 
-            <!-- Nombre del Cliente -->
+            
             <StackLayout Orientation="Vertical" Spacing="5" Padding="0,10">
                 <Label Text="Nombre del Cliente" TextColor="#2F4F4F" FontAttributes="Bold" />
                 <Frame HasShadow="True" 
@@ -29,9 +29,9 @@
            Margin="0,5"
            HeightRequest="50">
                     <Grid ColumnDefinitions="Auto,*" VerticalOptions="CenterAndExpand">
-                        <!-- Icono de cliente -->
+                       
                         <Image Source="nombrecliente.png" HeightRequest="24" WidthRequest="24" Margin="10,0" VerticalOptions="Center" />
-                        <!-- Campo de texto (Entry) para nombre del cliente -->
+                       
                         <Entry x:Name="nombreClienteEntry" 
                    Placeholder="Escribe tu nombre" 
                    Text="{Binding NombreCliente}"
@@ -46,7 +46,7 @@
 
 
 
-            <!-- Selección de Fecha -->
+            
             <StackLayout Orientation="Vertical" Spacing="5" Padding="0,10">
                 <Label Text="Selecciona la Fecha" TextColor="#2F4F4F" FontAttributes="Bold" />
                 <Frame HasShadow="True" 
@@ -56,9 +56,9 @@
            Margin="0,5"
            HeightRequest="50">
                     <Grid ColumnDefinitions="Auto,*" VerticalOptions="CenterAndExpand">
-                        <!-- Icono de fecha -->
+                       
                         <Image Source="fechareserva.png" HeightRequest="24" WidthRequest="24" Margin="10,0" VerticalOptions="Center" />
-                        <!-- Selección de Fecha (DatePicker) -->
+                        
                         <DatePicker x:Name="fechaPicker" 
                         Date="{Binding FechaCita}" 
                         BackgroundColor="Transparent" 
@@ -72,7 +72,7 @@
 
 
 
-            <!-- Selección de Hora -->
+            
             <StackLayout Orientation="Vertical" Spacing="5" Padding="0,10">
                 <Label Text="Selecciona la Hora" TextColor="#2F4F4F" FontAttributes="Bold" />
                 <Frame HasShadow="True" 
@@ -82,9 +82,9 @@
            Margin="0,5"
            HeightRequest="50">
                     <Grid ColumnDefinitions="Auto,*" VerticalOptions="CenterAndExpand">
-                        <!-- Icono de hora -->
+                        
                         <Image Source="horareserva.png" HeightRequest="24" WidthRequest="24" Margin="10,0" VerticalOptions="Center" />
-                        <!-- Selección de Hora (TimePicker) -->
+                        
                         <TimePicker x:Name="horaPicker" 
                         Time="{Binding HoraCita}" 
                         BackgroundColor="Transparent" 
@@ -96,7 +96,7 @@
                 </Frame>
             </StackLayout>
 
-            <!-- Selección de servicios adicionales con Switches -->
+            
             <Frame HasShadow="True" CornerRadius="20" BackgroundColor="#E6E6FA" Padding="10">
                 <StackLayout Orientation="Horizontal" Spacing="10">
                     <Label Text="Corte de Cabello (C$150)" TextColor="#2F4F4F"/>
@@ -108,6 +108,7 @@
                 <StackLayout Orientation="Horizontal" Spacing="10">
                     <Label Text="Corte de Cejas (C$50)" TextColor="#2F4F4F"/>
                     <Switch IsToggled="{Binding IsCorteCejasSelected}" />
+
                 </StackLayout>
             </Frame>
 
@@ -125,11 +126,9 @@
                 </StackLayout>
             </Frame>
 
-            <!-- Total a pagar -->
             <Label Text="Total a Pagar:" FontAttributes="Bold" TextColor="#2F4F4F" Margin="0,20,0,5" />
             <Label x:Name="totalLabel" Text="C$0" FontSize="Large" FontAttributes="Bold" TextColor="#FF6347" />
 
-            <!-- Botón para calcular el total -->
             <Button Text="Calcular Total"
                     BackgroundColor="#6A5ACD"
                     TextColor="White"
@@ -137,7 +136,7 @@
                     Clicked="OnCalcularTotalClicked"
                     CornerRadius="20" />
 
-            <!-- Botón para confirmar reservación -->
+           
             <Button Text="Confirmar Reservación"
                     Command="{Binding AgendarCitaCommand}"
                     BackgroundColor="#2F4F4F"
@@ -146,7 +145,6 @@
                     Margin="0,20,0,0"
                     CornerRadius="20" />
 
-            <!-- Botón para actualizar la cita -->
             <Button Text="Actualizar"
                     Command="{Binding ActualizarCitaCommand}"
                     BackgroundColor="#FFA500"
@@ -155,7 +153,6 @@
                     Margin="0,10,0,0"
                     CornerRadius="20" />
 
-            <!-- Botón para eliminar la cita -->
             <Button Text="Eliminar"
                     Command="{Binding EliminarCitaCommand}"
                     BackgroundColor="#FF6347"
@@ -164,7 +161,6 @@
                     Margin="0,10,0,0"
                     CornerRadius="20" />
 
-            <!-- Botón para volver al menú -->
             <Button Text="Volver al Menú" 
                     BackgroundColor="#2F4F4F" 
                     TextColor="White" 
@@ -175,3 +171,4 @@
         </StackLayout>
     </ScrollView>
 </ContentPage>
+        
