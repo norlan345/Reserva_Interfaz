@@ -67,6 +67,7 @@
 	  <None Remove="imagenes\horareserva.png" />
 	  <None Remove="imagenes\logo.jpg" />
 	  <None Remove="imagenes\loscut.png" />
+	  <None Remove="imagenes\menu.png" />
 	  <None Remove="imagenes\nombrecliente.png" />
 	  <None Remove="imagenes\usuario.png" />
 	</ItemGroup>
@@ -79,6 +80,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="ConfirtmacionBarbero.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Corte.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -92,6 +96,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Messenger_barber.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pago.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Perfil.xaml">
@@ -118,6 +125,7 @@
 	  <MauiImage Include="imagenes\horareserva.png" />
 	  <MauiImage Include="imagenes\logo.jpg" />
 	  <MauiImage Include="imagenes\loscut.png" />
+	  <MauiImage Include="imagenes\menu.png" />
 	  <MauiImage Include="imagenes\nombrecliente.png" />
 	  <MauiImage Include="imagenes\usuario.png" />	
 	</ItemGroup>

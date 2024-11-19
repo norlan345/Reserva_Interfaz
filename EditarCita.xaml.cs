@@ -7,6 +7,6 @@ public partial class EditarCita : ContentPage
 	public EditarCita()
 	{
 		InitializeComponent();
-        BindingContext = new AgendarCitaViewModel(this);
+        //BindingContext = new AgendarCitaViewModel(this);
     }
 }

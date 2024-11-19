@@ -73,12 +73,14 @@
                     Command="{Binding LoginCommand}" />
 
                 <Button 
-                    Text="Registrarse" 
-                    TextColor="White" 
-                    BackgroundColor="#555555" 
-                    WidthRequest="250" 
-                    CornerRadius="25" 
-                    />
+    Text="Registrarse" 
+    TextColor="White" 
+    BackgroundColor="#555555" 
+    WidthRequest="250" 
+    CornerRadius="25" 
+    Clicked="OnRegisterButtonClicked" />
+
+
             </VerticalStackLayout>
         </Frame>
     </Grid>

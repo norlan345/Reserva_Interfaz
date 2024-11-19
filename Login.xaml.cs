@@ -20,12 +20,12 @@ namespace Reserva_Interfaz
             // Validar credenciales...
 
             // Si las credenciales son válidas, navega al menú
-            
+
         }
         private async void OnRegisterButtonClicked(object sender, EventArgs e)
         {
-            // Navegar a la página de registro
             await Navigation.PushAsync(new Sign_up());
         }
+
     }
 }

@@ -65,6 +65,7 @@ namespace Reserva_Interfaz.MVVM.ViewModel
             {
                 Nombre = Nombre,
                 Contraseña = Contraseña,
+                Rol= Rol
              
                
             }; 

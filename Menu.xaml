@@ -6,24 +6,29 @@
     <StackLayout Padding="20" Spacing="15">
         <Label Text="Bienvenido al Menú" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
 
-        <Button Text="Corte" 
+        <Button Text="Servicio" 
                 BackgroundColor="#333333" 
                 TextColor="White" 
                 Clicked="OnCorteButtonClicked" />
 
-        <Button Text="Perfil" 
+        <!--<Button Text="Perfil" 
                 BackgroundColor="#333333" 
                 TextColor="White" 
-                Clicked="OnPerfilButtonClicked" />
+                Clicked="OnPerfilButtonClicked" />-->
 
-        <!--<Button Text="Reservación" 
-                BackgroundColor="#333333" 
-                TextColor="White" 
-                Clicked="OnReservacionButtonClicked" />-->
+        <Button Text="Reservación" 
+         BackgroundColor="#333333" 
+         TextColor="White" 
+         Clicked="OnReservacionButtonClicked" />
 
-        <Button Text="Messenger Barber" 
+        <Button Text="Confirmación Barbero" 
+ BackgroundColor="#333333" 
+ TextColor="White" 
+ Clicked="OnConfirmacionBarberoButtonClicked" />
+
+        <!--<Button Text="Messenger Barber" 
                 BackgroundColor="#333333" 
                 TextColor="White" 
-                Clicked="OnMessengerBarberButtonClicked" />
+                Clicked="OnMessengerBarberButtonClicked" />-->
     </StackLayout>
 </ContentPage>

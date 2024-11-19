@@ -12,8 +12,9 @@ public partial class Sign_up : ContentPage
 
     private async void OnBackButtonClicked(object sender, EventArgs e)
     {
-        await Navigation.PopAsync(); // Regresar a la página anterior
+        await Navigation.PopAsync();
     }
+
     private async void OnSaveButtonClicked(object sender, EventArgs e)
     {
         await saveButton.ScaleTo(1.2, 100);

@@ -19,14 +19,18 @@ namespace Reserva_Interfaz
             await Navigation.PushAsync(new Perfil());
         }
 
-        //private async void OnReservacionButtonClicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new Reservacion());
-        //}
+        private async void OnReservacionButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Reservacion());
+        }
 
         private async void OnMessengerBarberButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Messenger_barber());
+        }
+        private async void OnConfirmacionBarberoButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ConfirtmacionBarbero());
         }
     }
 }

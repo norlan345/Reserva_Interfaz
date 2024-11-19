@@ -11,12 +11,16 @@ namespace Reserva_Interfaz
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
+                    // Fuentes predeterminadas
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+
+                    // Agregar la fuente Python Serif
+                    fonts.AddFont("PythonSerif.ttf", "PythonSerif");  
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

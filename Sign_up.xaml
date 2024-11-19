@@ -79,15 +79,16 @@
                 Command="{Binding RegisterCommand}" />
 
             <Button 
-                x:Name="backButton"
-                Text="Volver al Login" 
-                TextColor="White" 
-                BackgroundColor="#555555" 
-                BorderColor="White"
-                BorderWidth="2"
-                WidthRequest="250" 
-                CornerRadius="25"
-                Clicked="OnBackButtonClicked" />
+    x:Name="backButton"
+    Text="Volver al Login" 
+    TextColor="White" 
+    BackgroundColor="#555555" 
+    BorderColor="White"
+    BorderWidth="2"
+    WidthRequest="250" 
+    CornerRadius="25"
+    Clicked="OnBackButtonClicked" />
+
         </VerticalStackLayout>
     </Grid>
 </ContentPage>
