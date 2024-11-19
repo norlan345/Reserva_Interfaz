@@ -104,6 +104,9 @@
 	  <MauiXaml Update="Perfil.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Reporte.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Reservacion.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

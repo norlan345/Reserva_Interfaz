@@ -63,7 +63,7 @@ namespace Reserva_Interfaz.MVVM.ViewModel
             AgendarCitaCommand = new AsyncRelayCommand(AgendarCitaAsync);
             EditarCitaCommand = new AsyncRelayCommand(EditarCitaAsync);
             EliminarCitaCommand = new AsyncRelayCommand(EliminarCitaAsync);
-
+            //EliminarCitaCommand = new AsyncRelayCommand(ReporteAsync);
         }
         public bool IsCorteCabelloSelected { get; set; }
         public bool IsCorteCejasSelected { get; set; }
@@ -226,5 +226,30 @@ namespace Reserva_Interfaz.MVVM.ViewModel
 
 
 
+        //private async Task ReporteAsync()
+        //{
+        //    try
+        //    {
+        //        var response = await _httpClient.GetAsync("/api/Citas");
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            var productos = await response.Content.ReadFromJsonAsync<List<AgendarCitaModel>>();
+        //            Reservas.Clear();
+        //            foreach (var prod in productos)
+        //            {
+        //                Reservas.Add(prod);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            await _page.DisplayAlert("Error", "Error al obtener productos", "OK");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await _page.DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
+        //    }
+
+        //}
     }
 }
